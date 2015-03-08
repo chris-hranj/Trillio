@@ -11,6 +11,7 @@
     "debug": "~2.1.1",
     "express": "~4.10.6",
     "hbs": "~2.8.0",
+    "merge-audio-buffers": "^1.0.0",
     "morgan": "~1.5.1",
     "node-tts-api": "0.0.5",
     "serve-favicon": "~2.2.0",
