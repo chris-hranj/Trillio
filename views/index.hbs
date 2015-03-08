@@ -1,17 +1,37 @@
-<h1>Trillio</h1>
-<p>Welcome to Trillio</p>
+<title>Trillio</title>
+<link href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='stylesheets/style.css' rel='stylesheet' type='text/css'>
 
-<form id="textForm", role="form">
-    <div>
-        <label for="num">Phone Number to text:</label>
-        <textarea id="num"></textarea>
-    </div>
-    <div>
-        <label for="msg">Message:</label>
-        <textarea id="msg"></textarea>
-    </div>
-    <button type="submit">Text!</button>
-</form>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4"></div>
+		<div class="col-md-4" style="text-align:center; margin-top: -30px;">
+			<h1>Trillio</h1>
+			<p>Enter your lyrics below to become the next Kanye West.</p>
+		</div>
+		<div class="col-md-4"></div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-4"></div>
+			<div class="col-md-4" style="text-align:center;">
+				<form id="textForm", role="form">
+				    <div>
+				        <label for="num">Phone Number:</label>
+				        <input id="num" class="form-control" placeholder="(420) 666 1337">
+				    </div>
+				    <br>
+				    <div>
+				        <label for="msg">Message:</label>
+						<textarea class="form-control" id="msg" rows="5" placeholder="Enter super hot lyrics..."></textarea>
+				    </div>
+				    <br>
+				    <button class="btn btn-lg btn-success" type="submit">$ Drop Fire! $</button>
+				</form>
+			</div>
+		<div class="col-md-4"></div>
+</div>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="/app.js"></script>

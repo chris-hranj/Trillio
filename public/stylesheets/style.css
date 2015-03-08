@@ -1,8 +1,22 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "Pacifico", Helvetica, Arial, sans-serif;
+  background-image: url(/images/chains.png), url(/images/background.jpg); 
+  background-position: center top, left top;
 }
 
 a {
   color: #00B7FF;
+}
+
+h1{
+	color: #E6E600;
+	font-size: 1000%;
+}
+p{
+	color: #E6E600;
+	font-size: 200%;
+}
+label{
+	color: #E6E600;
 }
