@@ -62,10 +62,7 @@ router.post('/phonecall', function(req, res) {
     res.set({
         'Content-Type':'text/xml'
     });
-    xw = new XMLWriter;
-    xw.startDocument('1.0', 'UTF-8').startElement('Response').writeElement('Play', 'http://5201bdac.ngrok.com/lyrics.mp3');
-    //console.log(xw.toString());
-    res.send(xw.toString());
+    res.sendFile(path.resolve(__dirname + '/../views/phonecall.xml'));
 });
 
 module.exports = router;
