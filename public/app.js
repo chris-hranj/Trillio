@@ -5,12 +5,12 @@
 
         // Call our ajax endpoint on the server to initialize the phone call
         $.ajax({
-            url: '/text',
+            url: '/call',
             method: 'POST',
             dataType: 'json',
             data: {
                 phoneNumber: $('#num').val(),
-                message: $('#msg').val()
+                textMessage: $('#msg').val()
             }
         }).done(function(data) {
             // The JSON sent back from the server will contain a success message
