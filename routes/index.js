@@ -17,13 +17,13 @@ router.get('/', function(req, res) {
 router.post('/call', function(req, res) {
 
 	//USE FOR TEXT TO SPEECH
-	// var file = fs.createWriteStream("./public/lyrics.mp3");
-	// var toSpeech = req.body.message;
-	// tts.getSpeech(toSpeech, function(error, link) {
-	//   var request = http.get(link, function(response) {
-	//     response.pipe(file);
-	//   });
-	// });
+	var file = fs.createWriteStream("./public/lyrics.mp3");
+	var toSpeech = req.body.textMessage;
+	tts.getSpeech(toSpeech, function(error, link) {
+	  var request = http.get(link, function(response) {
+	    response.pipe(file);
+	  });
+	});
 	
 	twilioClient.makeCall({
 	    to: "+1" + req.body.phoneNumber,
