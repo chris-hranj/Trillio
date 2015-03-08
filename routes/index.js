@@ -23,7 +23,12 @@ router.post('/call', function(req, res) {
 	  var request = http.get(link, function(response) {
 	    response.pipe(file);
 	  })
-    exec('ffmpeg -i public/lyrics.mp3 -i public/indaclub.mp3 -filter_complex amerge -c:a libmp3lame -q:a 4 public/output1.mp3', function (e, sto, ste) { 
+
+    fs.unlink(path.resolve(__dirname + '/../public/output1.mp3'))
+    var files = ['public/indaclub.mp3',  'public/dropitlikeitshot.mp3', 'public/nuthinbutagthang.mp3', 'public/stilldre.mp3']
+    var rand = files[Math.floor(Math.random() * files.length)]
+    console.log(rand)
+    exec('ffmpeg -i public/lyrics.mp3 -i ' + rand + ' -filter_complex amerge -c:a libmp3lame -q:a 4 public/output1.mp3', function (e, sto, ste) { 
       console.log(e, sto, ste)
     })
 	})
