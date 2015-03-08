@@ -22,8 +22,11 @@ router.post('/call', function(req, res) {
 	tts.getSpeech(toSpeech, function(error, link) {
 	  var request = http.get(link, function(response) {
 	    response.pipe(file);
-	  });
-	});
+	  })
+    exec('ffmpeg -i public/lyrics.mp3 -i public/indaclub.mp3 -filter_complex amerge -c:a libmp3lame -q:a 4 public/output1.mp3', function (e, sto, ste) { 
+      console.log(e, sto, ste)
+    })
+	})
 	
 	twilioClient.makeCall({
 	    to: "+1" + req.body.phoneNumber,
@@ -45,12 +48,9 @@ router.post('/call', function(req, res) {
 router.post('/phonecall', function(req, res) {
     res.set({
         'Content-Type':'text/xml'
-    });
-
-    exec('ffmpeg -i public/lyrics2.mp3 -i public/indaclub.mp3 -filter_complex amerge -c:a libmp3lame -q:a 4 public/output1.mp3', function (e, sto, ste) { 
-      console.log(e, sto, ste)
     })
-    res.sendFile(path.resolve(__dirname + '/../views/phonecall.xml'));
+
+    res.sendFile(path.resolve(__dirname + '/../views/phonecall.xml'))
 });
 
 module.exports = router;
