@@ -14,6 +14,7 @@
     "merge-audio-buffers": "^1.0.0",
     "morgan": "~1.5.1",
     "node-tts-api": "0.0.5",
+    "request": "^2.53.0",
     "serve-favicon": "~2.2.0",
     "twilio": "^1.11.1",
     "unitgen": "^1.0.1",
