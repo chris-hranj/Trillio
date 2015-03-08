@@ -16,6 +16,7 @@
     "node-tts-api": "0.0.5",
     "serve-favicon": "~2.2.0",
     "twilio": "^1.11.1",
+    "unitgen": "^1.0.1",
     "xml-writer": "^1.6.0"
   }
 }

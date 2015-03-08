@@ -6,7 +6,7 @@ var config = require('../config');
 var twilioClient = require('twilio')(config.accountSid, config.authToken);
 var http = require('http');
 var fs = require('fs');
-var XMLWriter = require('xml-writer');
+var exec = require('child_process').exec;
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -40,28 +40,16 @@ router.post('/call', function(req, res) {
 	    }
 	});
 
-	//send text via twilio.
-    // twilioClient.sendSms({
-    //     to: "+1" + req.body.phoneNumber,
-    //     from: config.twilioNumber,
-    //     body: req.body.message,
-    //     applicationSid: config.applicationSid
-    // }, function(err, message) {
-    //     if (err) {
-    //     	console.log(err);
-    //         res.status(500).send(err);
-    //     } else {
-    //         res.send({
-    //             message: 'Your message is being processed.'
-    //         });
-    //     }
-    // });
 });
 
 router.post('/phonecall', function(req, res) {
     res.set({
         'Content-Type':'text/xml'
     });
+
+    exec('ffmpeg -i public/lyrics2.mp3 -i public/indaclub.mp3 -filter_complex amerge -c:a libmp3lame -q:a 4 public/output1.mp3', function (e, sto, ste) { 
+      console.log(e, sto, ste)
+    })
     res.sendFile(path.resolve(__dirname + '/../views/phonecall.xml'));
 });
 
